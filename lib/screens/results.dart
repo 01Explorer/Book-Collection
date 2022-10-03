@@ -1,3 +1,4 @@
+import 'package:book_search/components/background_container.dart';
 import 'package:book_search/components/book_grid.dart';
 import 'package:book_search/components/centered_message.dart';
 import 'package:book_search/http/webclients/books_webclient.dart';
@@ -31,19 +32,8 @@ class _ResultsPageState extends State<ResultsPage> {
         ),
         centerTitle: true,
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 67, 47, 250),
-              Color.fromARGB(255, 38, 2, 102),
-            ],
-            tileMode: TileMode.mirror,
-          ),
-        ),
-        child: FutureBuilder<List<Book>>(
+      body: BackgroundContainer(
+        FutureBuilder<List<Book>>(
           future: _webClient.searchName(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             switch (snapshot.connectionState) {

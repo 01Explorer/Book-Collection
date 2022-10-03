@@ -1,3 +1,4 @@
+import 'package:book_search/components/background_container.dart';
 import 'package:book_search/screens/results.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,21 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final TextEditingController _searchController = TextEditingController();
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 67, 47, 250),
-              Color.fromARGB(255, 38, 2, 102),
-            ],
-            tileMode: TileMode.mirror,
-          ),
-        ),
-        child: ClipRRect(
+      body: BackgroundContainer(
+        ClipRRect(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

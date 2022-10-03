@@ -1,3 +1,4 @@
+import 'package:book_search/components/background_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -7,19 +8,8 @@ class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 67, 47, 250),
-              Color.fromARGB(255, 38, 2, 102),
-            ],
-            tileMode: TileMode.mirror,
-          ),
-        ),
-        child: ClipRRect(
+      body: BackgroundContainer(
+        ClipRRect(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

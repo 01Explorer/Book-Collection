@@ -1,3 +1,5 @@
+import 'package:book_search/components/info_text_detailing.dart';
+import 'package:book_search/components/page_break_details.dart';
 import 'package:book_search/models/book.dart';
 import 'package:book_search/models/book_provider.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +59,7 @@ class BookDescription extends StatelessWidget {
                     ),
                     Text(
                       book.nameAuthors(),
+                      textAlign: TextAlign.justify,
                       style: const TextStyle(
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.w600),
@@ -66,39 +69,19 @@ class BookDescription extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            'Publisher: ${book.publisher}',
-                            style: const TextStyle(
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                          Text(
-                            'Published Date: ${book.publishedDate}',
-                            style: const TextStyle(
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                          Text(
-                            'Number of Pages: ${book.pageCount}',
-                            style: const TextStyle(
-                              fontStyle: FontStyle.italic,
-                            ),
-                          )
+                          InfoTextDetails(
+                              message: 'Publisher: ', value: book.publisher),
+                          InfoTextDetails(
+                              message: 'Published Date: ',
+                              value: book.publishedDate),
+                          InfoTextDetails(
+                              message: 'Number of Pages: ',
+                              value: book.pageCount)
                         ],
                       ),
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 8),
-                      height: 40,
-                      width: MediaQuery.of(context).size.width,
-                      color: const Color.fromARGB(255, 67, 47, 250),
-                      child: const Center(
-                        child: Text(
-                          'Description',
-                          style: TextStyle(fontSize: 24, color: Colors.white),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
+                    const ContainerPageBreak(
+                      message: 'Description',
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
@@ -109,25 +92,13 @@ class BookDescription extends StatelessWidget {
                         textAlign: TextAlign.justify,
                       ),
                     ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 8),
-                      height: 40,
-                      width: MediaQuery.of(context).size.width,
-                      color: const Color.fromARGB(255, 67, 47, 250),
-                      child: const Center(
-                        child: Text(
-                          'Sales Information',
-                          style: TextStyle(fontSize: 24, color: Colors.white),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
+                    const ContainerPageBreak(message: 'Sales Information'),
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         book.forSale!
                             ? 'Available for R\$${book.price}'
-                            : 'Edition Unavailable for purchase',
+                            : 'Edition Unavailable for purchas',
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w400,
